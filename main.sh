@@ -52,13 +52,13 @@ function moveOutput() {
 }
 
 function deployIonic() {
-    cloneRepo "git@github.com:jrquick17/football-bingo.git"
+    cloneRepo "git@github.com:${1}/${2}.git"
 
-    installDependencies "football-bingo"
+    installDependencies "${2}"
 
-    buildApp "football-bingo"
+    buildApp "${2}"
 
-    moveBuild "football-bingo"
+    moveBuild "${2}"
 }
 
 export -f version

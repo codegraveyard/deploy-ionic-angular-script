@@ -31,7 +31,8 @@
 
   * **REQUIRED** 
     
-    * `<GIT_DIRECTORY>` - The repository name you want to clone.
+    * `<GIT_USERNAME>` - The username of the repository you want to clone. (Ex: `jrquick17`)
+    * `<GIT_DIRECTORY>` - The repository name you want to clone. (Ex: `deploy-ionic-angular-script`)
      
   * **Optional** 
     
