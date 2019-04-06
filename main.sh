@@ -14,17 +14,19 @@ function buildApp() {
 
 # Copy default files found in most repositories
 function cloneRepo() {
+    REPO = ""
+
     if [[ ${1} == "ssh" ]]; then
-        repo = "git@github.com:"
+        REPO = "git@github.com:"
     else
-        repo = "https://github.com/"
+        REPO = "https://github.com/"
     fi
 
-    repo = "${repo}${2}.git"
+    repo = "${REPO}${2}.git"
 
-    log "Cloning '${repo}'..."
+    log "Cloning '${REPO}'..."
 
-    git clone ${repo}
+    git clone ${REPO}
 }
 
 # Install node modules
@@ -60,20 +62,20 @@ function moveBuild() {
 }
 
 function deployIonic() {
-    ssh=${3:-ssh}
+    SSH=${3:-ssh}
 
-    output=${4:-execution_location}
+    OUTPUT=${4:-execution_location}
     if [[ ${1} == "execution_location" ]]; then
         repo = "."
     fi
 
-    cloneRepo ${ssh} "${1}/${2}.git"
+    cloneRepo ${SSH} "${1}/${2}.git"
 
     installDependencies "${2}"
 
     buildApp "${2}"
 
-    moveBuild "${2}" "${output}"
+    moveBuild "${2}" "${OUTPUT}"
 }
 
 export -f deployIonic
