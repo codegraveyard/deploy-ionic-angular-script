@@ -31,12 +31,15 @@
 
   * **REQUIRED** 
     
-    * `<GIT_USERNAME>` - The username of the repository you want to clone. (Ex: `jrquick17`)
-    * `<GIT_DIRECTORY>` - The repository name you want to clone. (Ex: `deploy-ionic-angular-script`)
+    * `<GIT_USERNAME>` - The username of the repository you want to clone. (Ex: `deployIonic jrquick17 <GIT_DIRECTORY>`)
+    * `<GIT_DIRECTORY>` - The repository name you want to clone. (Ex: `deployIonic jrquick17 deploy-ionic-angular-script`)
      
   * **Optional** 
+  
+    * Take into account that **Order Matters** 
+        * If you want to use the second argument in this list then you must use the first, if you want to use the third you must use the first and second too, and so forth.
     
-    * `<--TO_DO>` - Nothing has been implemented yet. 
+    * `<-ssh|https>` - This allows you to change from `ssh` to `https`. (Ex: `jrquick17 deploy-ionic-angular-script https`)
 
 ## Issues ##
 
