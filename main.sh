@@ -53,14 +53,19 @@ function log() {
 # Move build files to directory
 #
 # @param $1 message
-function moveOutput() {
+function moveBuild() {
     log "Moving build..."
 
-    mv "${1}/www/*" "."
+    mv "${1}/www/*" "${2}"
 }
 
 function deployIonic() {
     ssh=${3:-ssh}
+
+    output=${4:-execution_location}
+    if [[ ${1} == "execution_location" ]]; then
+        repo = "."
+    fi
 
     cloneRepo ${ssh} "${1}/${2}.git"
 
@@ -68,7 +73,7 @@ function deployIonic() {
 
     buildApp "${2}"
 
-    moveBuild "${2}"
+    moveBuild "${2}" "${output}"
 }
 
 export -f version
