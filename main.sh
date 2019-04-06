@@ -22,11 +22,11 @@ function cloneRepo() {
         REPO = "https://github.com/"
     fi
 
-    repo = "${REPO}${2}.git"
+    REPO = REPO${2}".git"
 
-    log "Cloning '${REPO}'..."
+    log "Cloning '"REPO"'..."
 
-    git clone ${REPO}
+    git clone REPO
 }
 
 # Install node modules
@@ -69,13 +69,13 @@ function deployIonic() {
         repo = "."
     fi
 
-    cloneRepo ${SSH} "${1}/${2}.git"
+    cloneRepo ${SSH} ${1}"/"${2}".git"
 
     installDependencies "${2}"
 
     buildApp "${2}"
 
-    moveBuild "${2}" "${OUTPUT}"
+    moveBuild "${2}" OUTPUT
 }
 
 export -f deployIonic
