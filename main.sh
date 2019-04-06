@@ -69,7 +69,7 @@ function deployIonic() {
         OUTPUT="."
     fi
 
-    cloneRepo ${SSH} ${1}"/"${2}".git"
+    cloneRepo ${SSH} ${1}"/"${2}
 
     installDependencies "${2}"
 
