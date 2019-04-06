@@ -76,4 +76,4 @@ function deployIonic() {
     moveBuild "${2}" "${output}"
 }
 
-export -f version
+export -f deployIonic
